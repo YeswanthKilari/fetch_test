@@ -1,23 +1,16 @@
-
-import axios from 'axios';
+import Link from 'next/link';
 export default async function Home() {
 
-  const response = await axios.get('https://dummyjson.com/todos')
-  const todos = response.data.todos;
-//  console.log(todos);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen ">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      <ul className="list-disc">
-        {todos.map((todo: { id: number; todo: string }) => (
-          <li
-            key={todo.id}
-            className={todo.id % 2 === 0 ? "text-blue-500" : "text-red-500"}
-          >
-            {todo.todo}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col items-center  overflow-hidden justify-center min-h-screen ">
+      Todo Application
+      <br />
+      <br />
+      <div className='flex flex-col gap-2.5 '>
+        <Link className='border bg-blue-500 text-white p-1.5  font-bold'  href='/signin'>Sign-in to todo app</Link>
+        <Link className='border bg-blue-500 text-white p-1.5  font-bold'  href='/signup'>Sign-up to todo app</Link>
+      </div>
     </div>
+    
   );
 }
